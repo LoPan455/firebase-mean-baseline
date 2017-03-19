@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html ng-app="app">
+
+<head>
     <meta charset="utf-8">
     <title></title>
-    <script type="text/javascript" src="vendor/angular.min.js"></script>
-    <script type="text/javascript" src="scripts/client.js"></script>
     <link rel="stylesheet" href="/styles/bootstrap.min.css">
-  </head>
-  <body ng-app="app">
-    <header class="jumbotron" ng-controller="firstController as fc">
-      <h1 class="container">{{fc.message}} Angular Node Express Starter</h1>
-    </header>
-  </body>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAl7ecZGdcorNpgRRVX678T-zcrT1KnpP8",
+            authDomain: "phi-firebase-more-practice.firebaseapp.com",
+            databaseURL: "https://phi-firebase-more-practice.firebaseio.com",
+            storageBucket: "phi-firebase-more-practice.appspot.com",
+            messagingSenderId: "461531052955"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src="scripts/client.js"></script>
+</head>
+
+<body ng-controller="FirstController as fc">
+<h1>{{fc.message}}</h1>
+<button ng-click="fc.logIn()">Log In</button>
+<button ng-click="fc.logOut()">Log Out</button>
+<div>
+  {{fc.secretData}}
+</div>
+
+</body>
+
 </html>
